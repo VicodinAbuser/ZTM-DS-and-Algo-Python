@@ -45,3 +45,23 @@ def smarter_matching(array1, array2):
 print(smarter_matching(array1, array2))
 
 
+#In this solution, we've made a number of asssumptions, like there will be no repitions of any element in an array,
+#Or that our function will receive exactly 2 inputs which will be arrays.
+#Now that we have come up with a better solution in terms of time complexity, we can look to iron out the minor flaws.
+#Let's make our function such that it can receive arrays with repititve elements, and if it receives anything other than two arrays
+#It gives an error message instead of just crashing out.
+
+def smarter_matching2(array1, array2):
+    try:
+        dictionary = dict()
+        for i in range(len(array1)):
+            if not dictionary[array1[i]]:
+                dictionary[array1[i]] = True
+
+        for i in range(len(array2)):
+            if array2[i] in dictionary:
+                return True
+        return False
+
+    except TypeError:
+        return "Exactly two arrays required."
