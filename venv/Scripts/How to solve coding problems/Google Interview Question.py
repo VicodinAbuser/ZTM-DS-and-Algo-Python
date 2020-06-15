@@ -77,3 +77,49 @@ def smart_pair_sum(array, sum):
 
 print(smart_pair_sum(array,sum))
 
+
+#Although we have achieved an efficient time complexity of O(n) we've done so under the assumption that the array will be sorted
+#What if the array isn't sorted?
+#In that case the first solution that comes to mind is that we can sort the array in O(nlog n) time
+#And then perform the smart_pair_sum operation on the sorted array to give us a final time complexity of O(nlog n)
+#Python's built-in sort method uses Tim Sort which has an average case time coplexity of O(nlog n)
+#So we can simply use that, or use a different sorting algorithm such as quicksort or heapsort.
+#Here, we are going with the built-in method
+
+
+def sort_pair_sum(array, sum):
+    array.sort()
+    left = 0
+    right = len(array)-1
+    while right > left:
+        if array[left] + array[right] == sum:
+            return "Yes"
+        elif array[left] + array[right] > sum:
+            right -= 1
+        else:
+            left += 1
+    return "No"
+
+print(sort_pair_sum(array,sum))
+
+#This solves our problem if the array is unsorted to begin with.
+#But we have lost out on time complexity as we have gone from O(n) to O(nlog n)
+#One thing we can do to get back to O(n) complexity is :
+#We can create a dictionary as we go along the array and enter the element we encounter to the dictionary
+#If the complement of the present element isn't already present in the dictionary
+#That is, we loop through the array once, and first check if the complement of the current element is present in the dictionary
+#If yes, then we return "Yes". If no, then we add the current element to the dictionary.
+
+def smartest_pair_sum(array, sum):
+    dictionary = dict()
+    for item in array:
+        comp = sum - item
+        if not comp in dictionary:
+            dictionary[item] = True
+        else:
+            return "Yes"
+    return "No"
+
+print(smartest_pair_sum(array, sum))
+
+#We have achieved an O(n) algorithm taking into consideration that the array can be unsorted!
