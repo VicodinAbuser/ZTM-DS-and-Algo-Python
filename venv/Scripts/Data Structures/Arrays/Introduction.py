@@ -1,9 +1,12 @@
 #Arrays are one of the most commonly-used data structures
 #The elements of an array are stored in contiguous memory locations
+#Arrays are of two types : Static and Dynamic
+#Static arrays have fixed, pre-defined amount of memory that they can use, whereas in dynamic arrays this is flexible
+#In Python we only have dynamic arrays
 #Some basic operations and their complexities are given below :
 
 #Look-up/Accses - O(1)
-#Push/Pop - O(1)
+#Push/Pop - O(1)*
 #Insert - O(n)
 #Delete - O(n)
 
@@ -21,6 +24,13 @@ sixth_element = array[5]  #sixth-element = 43 Again, in O(1) time
 #Similarly, pop corresponds to removing the element at the end of the array.
 #Since the index of the end of the array is known, finding it and pushing or popping an element will only require O(1) time
 array.append(87) #Adds 87 at the end of the array in O(1) time
+
+#In some special cases, the append(push) operation may take greater time. This is because as mentioned earlier, Python has dynamic arrays
+#So when an element is to appended and the array is filled, the entire array has to be copied to a new location
+#With more space allocated(generally double the space) this time so that more items can be appended.
+#Therefore, some individual operations may reuire O(n) time or greater, but when averaged over a large number of operations,
+#The complexity can be safely considered to be O(1)
+
 array.pop() #Pops/removes the element at the end of the array in O(1) time.
 
 print(array)
