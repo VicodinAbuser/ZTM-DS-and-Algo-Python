@@ -33,3 +33,16 @@ def smarter_reverse(string):
     return string
 
 print(simple_reverse(string))
+
+
+#Apart from these, some built-in functions that can be used to reverse a string are as follows:
+
+string1 = 'abcde'
+string2 = reversed(string1)
+print(''.join(string2))
+
+list1 = list(string1)
+list1.reverse()
+print(''.join(list1))
+
+#Both these methods are of O(n) time complexity
