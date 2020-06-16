@@ -25,6 +25,22 @@ def naive_zero_mover(array):
         c += 1
     return array
 
-array = [0,1,0,3,0,0,0,12]
+array = [0,0,0,0,1,0,3,0,0,0,12,9,7]
 print(naive_zero_mover(array))
+
+
+#A far better solution can be swapping every non-zero element we find with the first un-swapped zero
+
+def swap_move(array):
+    z = 0
+    for i in range(len(array)):
+        if array[i] != 0:
+            array[i], array[z] = array[z], array[i]
+            z += 1
+    return array
+print(swap_move(array))
+#In this solution, we traverse the array and swap every non-zero element with itself until we find a 0
+#Then we swap the next non-zero element with the 0 and we keep doing this until we have looped over the entire array.
+#This seems like a cleaner solution to the first one but still there are lots of unnecessary swaps going on here.
+#Still, we are looping over the array once and the swapping is done in constant time, so overall time complexity is O(n)
 
