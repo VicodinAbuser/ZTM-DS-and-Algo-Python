@@ -44,3 +44,18 @@ print(swap_move(array))
 #This seems like a cleaner solution to the first one but still there are lots of unnecessary swaps going on here.
 #Still, we are looping over the array once and the swapping is done in constant time, so overall time complexity is O(n)
 
+
+#A very elegant solution to this problem can be the following one-liner :
+
+def one_liner_move(array):
+    array.sort(key=bool, reverse=True)
+    return array
+
+print(one_liner_move(array))
+
+#What this does is it sorts the array in place using the key as boolean.
+#Now the integer 0 is considered as boolean 0 and all other integers are considered as boolean 1
+#So providing the key as bool, we are telling the sort method to sort the array on the basis of boolean values
+#The 0's , which are considered as 0, come first, and the remaining numbers, considered as 1, come next, in their original order.
+#The reverse=True reverses this arrangement so that the 0's are all the end and the non-zero numbers at the front.
+#The complexity for this is O(nlog n) as the complexity of Python's built-in sort method is O(nlog n)
