@@ -69,3 +69,20 @@ print(naive_longest_word(string))
 #Complexity of .join(string) is O(len(string)). So overall time complexity is O(mn)
 #Also, two new arrays are created. So space complexity = O(m + n)
 
+
+#A different method to solve this problem can be using Regex,or Regular Expressions
+#First we split the string into groups of alphanumeric characters
+#Then we find the maximum length among all the words
+#Finally we find the word corresponding to the maximum length
+
+import re
+
+def regex(string):
+    string = re.findall('\w+', string)
+    maximum = max([len(item) for item in string])
+    for item in string:
+        if len(item) == maximum:
+            return item
+sss = "Hello there how are you"
+print(regex(sss))
+
