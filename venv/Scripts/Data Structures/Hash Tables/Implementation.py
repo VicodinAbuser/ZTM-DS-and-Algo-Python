@@ -4,7 +4,7 @@
 class hash_table():
     def __init__(self,size): #We initialize the size of our hash table(no. of buckets) with the size given to the class object
         self.size = size
-        self.data = [None]*self.size #We initialize an array of size 'size' consistinf of None
+        self.data = [None]*self.size #We initialize an array of size 'size' with None
 
 
     def __str__(self): #As in the array implementation, this method is used to print the attributes of the class object in a dictionary format
