@@ -1,8 +1,8 @@
-#although hash tables come built-in in the form of dictionaries in Python,
+#Although hash tables come built-in in the form of dictionaries in Python,
 #here we'll try to implement our own hash table
 
 class hash_table():
-    def __init__(self,size): #We initialize the size of our hash table(no. of buckets) with the size given to the class
+    def __init__(self,size): #We initialize the size of our hash table(no. of buckets) with the size given to the class object
         self.size = size
         self.data = [None]*self.size #We initialize an array of size 'size' consistinf of None
 
