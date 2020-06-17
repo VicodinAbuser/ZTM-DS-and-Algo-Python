@@ -33,6 +33,23 @@ class hash_table():
             self.data[hash].append([key, value])
             print(self.data)
 
+    def keys(self): #Function to return all the keys
+        keys_array = [] #Array to hold the keys
+        for i in range(self.size): #We loop over the entire table
+            if self.data[i]!= None: #If we find a non-empty bucket, we go in and loop over all the key,value pairs that might be in it
+                for j in range(len(self.data[i])): #Looping over all the lists(key,value pairs) in the current bucket
+                    keys_array.append(self.data[i][j][0]) #Adding the key of each list to the keys_array
+        return keys_array
+
+    def values(self): #Function to return all the values, with exactly the same logic as the keys function
+        values_array = []
+        for i in range(self.size):
+            if self.data[i] != None:
+                for j in range(len(self.data[i])):
+                    values_array.append(self.data[i][j][1])  #Only difference from the keys function is instead of appending the first element, we are appending the last element of each list
+        return values_array
+
+
 new_hash = hash_table(2)
 print(new_hash)
 #{'size': 2, 'data': [None, None]}
@@ -48,6 +65,11 @@ print(new_hash)
 print(new_hash.get('one'))
 #1
 
+print(new_hash.keys())
+#['one', 'five', 'two', 'three', 'four']
+print(new_hash.values())
+#[1, 5, 2, 3, 4]
+
 
 #Now although there are some for loops running in the class hash,
 #the time complexity is not O(n).
@@ -55,3 +77,5 @@ print(new_hash.get('one'))
 #But the for loop in the _hash function runs only for the length of the key, which would be insignificantly small in comparison to the number of entries in general.
 #Also, the for loop in the get function runs for the length of the collisioned array, which in most cases, won't be too long
 #Atleast nowhere near to the number of total entries, hence the time complexity remains way less than O(n), even less than O(log n) in most cases
+#The keys and values methods are slightly worse than O(n) though, as we have to loop over the entire size of the table once,
+#And loop over all the lists in the buckets which have collision
