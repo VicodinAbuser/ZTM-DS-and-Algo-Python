@@ -112,6 +112,40 @@ class LinkedList():
             return
 
 
+#Next comes the delete_by_value method where the user can enter a value and if the value is found in the list, it will be deleted.
+#(If the value is found multiple times, only the first occurence of thevalue will be deleted.)
+#First we check if the list is empty. If yes, we print appropriate message. If not, then we create a temporary node.
+#Then we check if the value of the head is equal to the value we want deleted.
+#If yes, we make the head equal to the node pointed by the 'next' of the head.
+#By Doing this, the original 'head' gets disconnected from the list and the head becomes updated to what was originally the second node
+#If these two cases are not encountered, then we have to traverse the list and check every node.
+#So we loop until either the current node becomes None, signifying the end of the list, or until the data of the node next to the current node equals the data we want deleted.
+#After coming out of the loop we check if the current node is not equal to None, it means the next node of the current node is the one we want deleted
+#So we make the 'next' of the current node point to the next to the next of the current node.
+#Effectively, we bypass the node we want deleted and establish a connection between the current and the next to next of the current nodes.
+#And if the current node is None, it means we traversed the entire list but couldn't find the value.
+#Time complexity is pretty clearly O(n)
+    def delete_by_value(self, data):
+        if self.head == None:
+            print("Linked List is empty. Nothing to delete.")
+            return
+        current_node = self.head
+        if current_node.data == data:
+            self.head = self.head.next
+            return
+        while current_node!= None and current_node.next.data != data:
+            #if current_node.data == data:
+            #    previous_node.next = current_node.next
+            #    return
+            current_node = current_node.next
+        if current_node!=None:
+            current_node.next = current_node.next.next
+            return
+        else:
+            print("Given value not found.")
+            return
+
+
 
 my_linked_list = LinkedList()
 my_linked_list.print_list()
@@ -128,4 +162,10 @@ my_linked_list.print_list()
 my_linked_list.insert(6,0)
 my_linked_list.print_list()
 my_linked_list.insert(9,3)
+my_linked_list.print_list()
+my_linked_list.delete_by_value(3)
+my_linked_list.print_list()
+my_linked_list.delete_by_value(0)
+my_linked_list.print_list()
+my_linked_list.delete_by_value(4)
 my_linked_list.print_list()
