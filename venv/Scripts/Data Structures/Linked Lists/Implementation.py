@@ -72,20 +72,60 @@ class LinkedList():
         else:
             current_node = self.head
             while current_node!= None:
-                print(current_node.data)
+                print(current_node.data, end= ' ')
                 current_node = current_node.next
-
+        print()
 
 #Next comes the insert operation, where we insert a data at a specified position
-
-'''    def insert(self, position, data):
-        if position == self.length:
+#If the position is greater than the length of the list, we simply follow the procedure of the append method where we add the node to the end of the list
+#If the position is equal to 0, we follow the prepend procedure, where we append the node at the head
+#If the postition is somewhere in between, then we create a temporary node which traverses the list upto the previous position of the position we want to enter the new node
+#Now the 'next' of the temporary node is pointing to the next node in the list, wehre we want to insert our new node
+#So first we link the new node and the node at the desired position by making the 'next' of the new node equal to the 'next' of the temporary node
+#The temporary node and the new node point to the same position now, the position we want to insert the new node
+#So we update the 'next' of the temporary node to point to the new node.
+#This way, our new node occupies the position it intended to and the node which was originally there, gets pushed to the next position
+#Since this requires traversal of the list, it is an O(n) operation.
+    def insert(self, position, data):
+        if position >= self.length:
+            if position>self.length:
+                print("This position is not available. Inserting at the end of the list")
             new_node = Node(data)
             self.tail.next = new_node
             self.tail = new_node
             self.length += 1
-        elif position < self.length:
+            return
+        if position == 0:
             new_node = Node(data)
-            i = 0
-            while i < position:
-'''
+            new_node.next = self.head
+            self.head = new_node
+            self.length += 1
+            return
+        if position < self.length:
+            new_node = Node(data)
+            current_node = self.head
+            for i in range(position-1):
+                current_node = current_node.next
+            new_node.next = current_node.next
+            current_node.next = new_node
+            self.length += 1
+            return
+
+
+
+my_linked_list = LinkedList()
+my_linked_list.print_list()
+my_linked_list.append(5)
+my_linked_list.append(2)
+my_linked_list.append(9)
+my_linked_list.print_list()
+my_linked_list.prepend(4)
+my_linked_list.print_list()
+my_linked_list.insert(2,7)
+my_linked_list.print_list()
+my_linked_list.insert(0,0)
+my_linked_list.print_list()
+my_linked_list.insert(6,0)
+my_linked_list.print_list()
+my_linked_list.insert(9,3)
+my_linked_list.print_list()
