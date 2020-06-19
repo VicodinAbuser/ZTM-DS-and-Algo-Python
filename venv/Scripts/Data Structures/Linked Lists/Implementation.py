@@ -49,3 +49,43 @@ class LinkedList():
             self.length += 1
 
 
+#Next operation we'll implement is prepend, wehre we add a node at the head of the list.
+#For this, we will call the prepend method and pass the value we want to enter, which will create a new object of the node class
+#Then we will make the 'next' of the new node point to the head ,as the head is currently pionting to the first node of the list
+#And then we will update the head to point to new node as we want the new node to be new first node, i.e, the new head.
+#And ofcourse, we'll increase the length by 1
+    def prepend(self, data):
+        new_node = Node(data)
+        new_node.next = self.head
+        self.head = new_node
+        self.length += 1
+
+
+#Now we will implement the print function to print the values in the nodes of the linked list
+#We will check if the list is empty or not. If it is, we will printout "Empty"
+#Else, we will create a new node which will point to the head. Then we will loop until the node we created becomes None
+#Inside the loop we will print the data of the current node and then make the current node equal to the node pointed by the current node
+#Since this requires us to traverse the entire lenth og the linked list, this is an O(n) operation.
+    def print_list(self):
+        if self.head == None:
+            print("Empty")
+        else:
+            current_node = self.head
+            while current_node!= None:
+                print(current_node.data)
+                current_node = current_node.next
+
+
+#Next comes the insert operation, where we insert a data at a specified position
+
+'''    def insert(self, position, data):
+        if position == self.length:
+            new_node = Node(data)
+            self.tail.next = new_node
+            self.tail = new_node
+            self.length += 1
+        elif position < self.length:
+            new_node = Node(data)
+            i = 0
+            while i < position:
+'''
