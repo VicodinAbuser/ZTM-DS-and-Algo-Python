@@ -116,13 +116,15 @@ class LinkedList():
 #(If the value is found multiple times, only the first occurence of thevalue will be deleted.)
 #First we check if the list is empty. If yes, we print appropriate message. If not, then we create a temporary node.
 #Then we check if the value of the head is equal to the value we want deleted.
-#If yes, we make the head equal to the node pointed by the 'next' of the head.
+#If yes, we make the head equal to the node pointed by the 'next' of the head. Then we check if there are only one or zero nodes in the list
+#If yes, then we update the tail to be equal to the head.
 #By Doing this, the original 'head' gets disconnected from the list and the head becomes updated to what was originally the second node
 #If these two cases are not encountered, then we have to traverse the list and check every node.
 #So we loop until either the current node becomes None, signifying the end of the list, or until the data of the node next to the current node equals the data we want deleted.
 #After coming out of the loop we check if the current node is not equal to None, it means the next node of the current node is the one we want deleted
 #So we make the 'next' of the current node point to the next to the next of the current node.
 #Effectively, we bypass the node we want deleted and establish a connection between the current and the next to next of the current nodes.
+#After deleting the required node, we check if the current node's 'next' points to None, i.e., if it is the last node. If yes, then we update the tail
 #And if the current node is None, it means we traversed the entire list but couldn't find the value.
 #Time complexity is pretty clearly O(n)
     def delete_by_value(self, data):
@@ -132,6 +134,9 @@ class LinkedList():
         current_node = self.head
         if current_node.data == data:
             self.head = self.head.next
+            if self.head == None or self.head.next==None:
+                self.tail = self.head
+            self.length -= 1
             return
         while current_node!= None and current_node.next.data != data:
             #if current_node.data == data:
@@ -140,32 +145,84 @@ class LinkedList():
             current_node = current_node.next
         if current_node!=None:
             current_node.next = current_node.next.next
+            if current_node.next == None:
+                self.tail = current_node
+            self.length -= 1
             return
         else:
             print("Given value not found.")
             return
 
 
+#Another functionality of linked lists can be deleting a node based on its position.
+#It follows more or less the same procedure as delete_by_value method.
+#Only real difference is instead of traversing the list till the current node becomes None or the next node equals the required data,
+#Here we traverse the list till the position one place behind the position we want deleted, similar to the insert operation
+#And then we bypass the next node to the current node and link it to the next to the next node of the current node.
+#We do a similar check for tail and update it just like in the delete_by_value method.
+#This operation too has a time complexity of O(n) in the worst case.
+    def delete_by_position(self, position):
+        if self.head == None:
+            print("Linked List is empty. Nothing to delete.")
+            return
+        if position == 0:
+            self.head = self.head.next
+            if self.head == None or self.head.next == None:
+                self.tail = self.head
+            self.length -= 1
+            return
+        if position>=self.length:
+            position = self.length-1
+        current_node = self.head
+        for i in range(position - 1):
+            current_node = current_node.next
+        current_node.next = current_node.next.next
+        self.length -= 1
+        if current_node.next == None:
+            self.tail = current_node
+        return
 
 my_linked_list = LinkedList()
 my_linked_list.print_list()
+#Empty
+
 my_linked_list.append(5)
 my_linked_list.append(2)
 my_linked_list.append(9)
 my_linked_list.print_list()
+#5 2 9
+
 my_linked_list.prepend(4)
 my_linked_list.print_list()
+#4 5 2 9
+
 my_linked_list.insert(2,7)
 my_linked_list.print_list()
+#4 5 7 2 9
+
 my_linked_list.insert(0,0)
-my_linked_list.print_list()
 my_linked_list.insert(6,0)
-my_linked_list.print_list()
 my_linked_list.insert(9,3)
 my_linked_list.print_list()
+#This position is not available. Inserting at the end of the list
+#0 4 5 7 2 9 0 3
+
 my_linked_list.delete_by_value(3)
 my_linked_list.print_list()
+#0 4 5 7 2 9 0
+
 my_linked_list.delete_by_value(0)
 my_linked_list.print_list()
-my_linked_list.delete_by_value(4)
+#4 5 7 2 9 0
+
+my_linked_list.delete_by_position(3)
 my_linked_list.print_list()
+#4 5 7 9 0
+
+my_linked_list.delete_by_position(0)
+my_linked_list.print_list()
+#5 7 9 0
+
+my_linked_list.delete_by_position(8)
+my_linked_list.print_list()
+#5 7 9
