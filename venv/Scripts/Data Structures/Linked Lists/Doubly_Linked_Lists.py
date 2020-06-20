@@ -6,6 +6,7 @@
 
 #Implementation of doubly linked list is almost exactly the same as that for singly linked list,
 #With just the added feature of the pointer to the previous node.
+#We'll have the same methods which do the exact same thing. The pars which will be different from the singly linked list are explained
 #So lets implement it.
 
 class Node():
@@ -18,8 +19,19 @@ class Node():
 class DoublyLinkedList():
     def __init__(self):
         self.head = None
-        self.tail = self.tail
+        self.tail = self.head
         self.length = 0
+
+
+    def print_list(self):
+        if self.head == None:
+            print("Empty")
+        else:
+            current_node = self.head
+            while current_node!= None:
+                print(current_node.data, end= ' ')
+                current_node = current_node.next
+        print()
 
 
     def append(self, data):
@@ -71,3 +83,114 @@ class DoublyLinkedList():
             return
 
 
+    def delete_by_value(self, data):
+        if self.head == None:
+            print("Linked List is empty. Nothing to delete.")
+            return
+
+        current_node = self.head
+        if current_node.data == data:
+            self.head = self.head.next
+            if self.head == None or self.head.next==None: #If after deleting the first node the list becomes empty or there remains only one node, we set the tail equal to the head
+                self.tail = self.head
+            if self.head != None:
+                self.head.previous = None #We set the previous pointer of the new head to be None
+            self.length -= 1
+            return
+
+        while current_node!= None and current_node.next.data != data:
+            current_node = current_node.next
+        if current_node!=None:
+            current_node.next = current_node.next.next
+            if current_node.next != None: #If the node deleted is not the last node(i.e., the node next to the next to the current node is !- None),
+                current_node.next.previous = current_node #Then we set the previous of the node next to the deleted node equal to the current node, so a two-way link is established
+            else:
+                self.tail = current_node #If the deleted node is the last node then we update the tail to be the current node
+            self.length -= 1
+            return
+        else:
+            print("Given value not found.")
+            return
+
+
+    def delete_by_position(self, position):
+        if self.head == None:
+            print("Linked List is empty. Nothing to delete.")
+            return
+
+        if position == 0:
+            self.head = self.head.next
+            #print(self.head)
+            if self.head == None or self.head.next == None:
+                self.tail = self.head
+            if self.head != None:
+                self.head.previous = None #We update the previous of the new head to be equal to None
+            self.length -= 1
+            return
+
+        if position>=self.length:
+            position = self.length-1
+
+        current_node = self.head
+        for i in range(position - 1):
+            current_node = current_node.next
+        current_node.next = current_node.next.next
+        if current_node.next != None: #Similar logic to the delete_by_value method
+            current_node.next.previous = current_node
+        else:
+            self.tail = current_node
+        self.length -= 1
+        return
+
+
+#I'll create a Doubly linked list and call all its methods in the same sequence as I did in the Singly Linked List implementation
+#The answers should come out to be the same
+my_linked_list = DoublyLinkedList()
+my_linked_list.print_list()
+#Empty
+
+my_linked_list.append(5)
+my_linked_list.append(2)
+my_linked_list.append(9)
+my_linked_list.print_list()
+#5 2 9
+
+my_linked_list.prepend(4)
+my_linked_list.print_list()
+#4 5 2 9
+
+my_linked_list.insert(2,7)
+my_linked_list.print_list()
+#4 5 7 2 9
+
+my_linked_list.insert(0,0)
+my_linked_list.insert(6,0)
+my_linked_list.insert(9,3)
+my_linked_list.print_list()
+#This position is not available. Inserting at the end of the list
+#0 4 5 7 2 9 0 3
+
+my_linked_list.delete_by_value(3)
+my_linked_list.print_list()
+#0 4 5 7 2 9 0
+
+my_linked_list.delete_by_value(0)
+my_linked_list.print_list()
+#4 5 7 2 9 0
+
+my_linked_list.delete_by_position(3)
+my_linked_list.print_list()
+#4 5 7 9 0
+
+my_linked_list.delete_by_position(0)
+my_linked_list.print_list()
+#5 7 9 0
+
+my_linked_list.delete_by_position(8)
+my_linked_list.print_list()
+#5 7 9
+print(my_linked_list.length)
+#3
+
+
+#The answers are all same. Meaning our doubly linked list works properly
