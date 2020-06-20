@@ -226,3 +226,5 @@ my_linked_list.print_list()
 my_linked_list.delete_by_position(8)
 my_linked_list.print_list()
 #5 7 9
+print(my_linked_list.length)
+#3
