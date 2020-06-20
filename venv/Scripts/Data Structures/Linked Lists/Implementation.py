@@ -182,49 +182,54 @@ class LinkedList():
             self.tail = current_node
         return
 
-my_linked_list = LinkedList()
-my_linked_list.print_list()
+
+#We will import this file while reversing a linked list. So we must make sure that it runs only
+#when it is the main file being run and not also when it is being imported in some other file.
+if __name__ == '__main__':
+
+    my_linked_list = LinkedList()
+    my_linked_list.print_list()
 #Empty
 
-my_linked_list.append(5)
-my_linked_list.append(2)
-my_linked_list.append(9)
-my_linked_list.print_list()
+    my_linked_list.append(5)
+    my_linked_list.append(2)
+    my_linked_list.append(9)
+    my_linked_list.print_list()
 #5 2 9
 
-my_linked_list.prepend(4)
-my_linked_list.print_list()
+    my_linked_list.prepend(4)
+    my_linked_list.print_list()
 #4 5 2 9
 
-my_linked_list.insert(2,7)
-my_linked_list.print_list()
+    my_linked_list.insert(2,7)
+    my_linked_list.print_list()
 #4 5 7 2 9
 
-my_linked_list.insert(0,0)
-my_linked_list.insert(6,0)
-my_linked_list.insert(9,3)
-my_linked_list.print_list()
+    my_linked_list.insert(0,0)
+    my_linked_list.insert(6,0)
+    my_linked_list.insert(9,3)
+    my_linked_list.print_list()
 #This position is not available. Inserting at the end of the list
 #0 4 5 7 2 9 0 3
 
-my_linked_list.delete_by_value(3)
-my_linked_list.print_list()
+    my_linked_list.delete_by_value(3)
+    my_linked_list.print_list()
 #0 4 5 7 2 9 0
 
-my_linked_list.delete_by_value(0)
-my_linked_list.print_list()
+    my_linked_list.delete_by_value(0)
+    my_linked_list.print_list()
 #4 5 7 2 9 0
 
-my_linked_list.delete_by_position(3)
-my_linked_list.print_list()
+    my_linked_list.delete_by_position(3)
+    my_linked_list.print_list()
 #4 5 7 9 0
 
-my_linked_list.delete_by_position(0)
-my_linked_list.print_list()
+    my_linked_list.delete_by_position(0)
+    my_linked_list.print_list()
 #5 7 9 0
 
-my_linked_list.delete_by_position(8)
-my_linked_list.print_list()
+    my_linked_list.delete_by_position(8)
+    my_linked_list.print_list()
 #5 7 9
-print(my_linked_list.length)
+    print(my_linked_list.length)
 #3
