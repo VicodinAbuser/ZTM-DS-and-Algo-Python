@@ -51,3 +51,23 @@ class DoublyLinkedList():
             return
 
 
+    def insert(self, position, data):
+        if position == 0:
+            self.prepend(data) #Inserting at position 0 is equivalent to prepending. So instead of repeating code, we simple call the prepend method
+            return
+        if position >= self.length:
+            self.append(data) #Similarly, inserting ata position >= the length of the list is equivalent to appending, so we call the append method
+            return
+        else:
+            new_node = Node(data)
+            current_node = self.head
+            for i in range(position - 1): #We traverse upto one position before the position where we want to insert the new node
+                current_node = current_node.next
+            new_node.previous = current_node #We make the previous of the new node point to the current node
+            new_node.next = current_node.next #And the next point to the next of the current node.
+            current_node.next = new_node #Then we break the link between the current node and the next node and make the next of the current node point to the new node
+            new_node.next.previous = new_node #And finally we update the previous of the next node to point to the new node instead of the current node. This way, the new node gets inserted in betwwen the current and the next nodes.
+            self.length += 1
+            return
+
+
