@@ -41,11 +41,11 @@ class Queue():
         new_node = Node(data)
         if self.last == None:
             self.last = new_node
-            self.first = new_node
+            self.first = self.last
             self.length += 1
             return
         else:
-            new_node.next = self.last
+            self.last.next = new_node
             self.last = new_node
             self.length += 1
             return
@@ -53,4 +53,15 @@ class Queue():
 
 #Next comes the dequeue operation which removes the front element of the queue
 #If the queue is empty, it will print an apropriate message
-#Else, i
+#Else, it will simply make the first pointer point to the next element of the first pointer.
+    def dequeue(self):
+        if self.last == None:
+            print("Quue Empty")
+            return
+        if self.last == self.first:
+            self.last = None
+        self.first = self.first.next
+        self.length -= 1
+        return
+
+#Finally
