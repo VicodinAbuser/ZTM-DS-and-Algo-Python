@@ -30,7 +30,7 @@ class Stack():
 #It will return the element at the top of the stack without removing it from the stack.
 #Since for this we only need to see what the top pointer points at, the time complexity will be O(1)
     def peek(self):
-        return self.top
+        return self.top.data
 
 
 #Next comes the push operation, where we insert an element at the top of the stack
