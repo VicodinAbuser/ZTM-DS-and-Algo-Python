@@ -50,7 +50,7 @@ class Stack():
             return
 
 #Next comes the pop operation wehere we remove the top element from the stack
-#Its time complexity is O(1) as well.
+#Its time complexity is O(1) as well
     def pop(self):
         if self.top == None: #If the stack is empty, we print an appropriate message
             print("Stack empty")
