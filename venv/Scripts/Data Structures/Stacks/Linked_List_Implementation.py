@@ -58,6 +58,8 @@ class Stack():
         else: #Else we make the top pointer point to the next of the top pointer and decrease the length by 1, effectively deleting the top element.
             self.top = self.top.next
             self.length -= 1
+            if(self.length == 0): #We make the bottom pointer None if there was only 1 element in the stack and that gets popped
+                self.bottom = None
             return
 
 #Finally we'll implement a print method which prints the elements of the stack from top to bottom
@@ -77,20 +79,27 @@ my_stack = Stack()
 print(my_stack.peek())
 #None
 
-my_stack.push(1)
-my_stack.push(6)
-my_stack.push(4)
+my_stack.push('google')
+my_stack.push('udemy')
+my_stack.push('discord')
 my_stack.print_stack()
-#4
-#6
-#1
+#discord
+#udemy
+#google
+
+print(my_stack.top.data)
+#discord
+
+print(my_stack.bottom.data)
+#gogle
 
 my_stack.pop()
 my_stack.print_stack()
-#4
-#6
+#udemy
+#google
 
 my_stack.pop()
 my_stack.pop()
 my_stack.print_stack()
 #Stack Empty
+
