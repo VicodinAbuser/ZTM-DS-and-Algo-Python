@@ -33,4 +33,19 @@ class Stack():
         return self.top
 
 
-#Next comes the push operation,
+#Next comes the push operation, where we insert an element at the top of the stack
+#Again this only requires access to the top pointer and inl=volves no looping.
+#So time complexity is O(1)
+    def push(self, data):
+        new_node = Node(data)
+        if self.top == None: #If the stack is empty, we make the top and bottom pointer both point to the new node
+            self.top = new_node
+            self.bottom = new_node
+            self.length += 1
+            return self.top
+        else: #Otherwise, we make the next of the top pointer, which was pointing to None, point to the new node and then update the top pointer
+            self.top.next = new_node
+            self.top = new_node
+            self.length += 1
+            return self.top
+
