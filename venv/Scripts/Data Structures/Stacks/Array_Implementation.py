@@ -63,3 +63,9 @@ print(my_stack.peek())
 
 print(my_stack.__dict__)
 #{'array': ["Andrei's", 'Courses']}
+
+
+'''Stacks can be implemented in Python in two more ways.
+1. Using the 'deque' class from 'collections' module. Same methods used in lists, append and pop are used in deques
+2. Using 'LifoQueue' from the 'queue' module . 'put()' and 'get()' methods are used for pushing and popping. It comes with some other useful metjods async well. 
+'''
