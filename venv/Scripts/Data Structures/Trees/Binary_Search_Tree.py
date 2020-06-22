@@ -52,14 +52,42 @@ class BST():
             return
 
 
+#Now we will implement the lookup method.
+#It will follow similar logic as to the insert method to reach the correct position.
+#Only instead of inserting a new node we will return "Found" if the node pointed by the temporary node contains the same value we are looking for
+    def search(self,data):
+        if self.root == None:
+            return "Tree Is Empty"
+        else:
+            current_node = self.root
+            while current_node != None:
+                if current_node.data == data:
+                    return "Found"
+                elif current_node.data > data:
+                    if current_node.left == None:
+                        return "Not Found"
+                    else:
+                        current_node = current_node.left
+                elif current_node.data < data:
+                    if current_node.right == None:
+                        return "Not Found"
+                    else:
+                        current_node = current_node.right
+
 '''
 my_bst = BST()
 my_bst.insert(5)
 my_bst.insert(3)
 my_bst.insert(7)
 my_bst.insert(1)
+my_bst.insert(13)
+my_bst.insert(65)
+my_bst.insert(0)
+my_bst.insert(10)
+
 print(my_bst.root.data)
 print(my_bst.root.left.data)
 print(my_bst.root.right.data)
 print(my_bst.root.left.left.data)
+print(my_bst.search(65))
 '''
