@@ -60,19 +60,15 @@ class BST():
             return "Tree Is Empty"
         else:
             current_node = self.root
-            while current_node != None:
+            while True:
+                if current_node == None:
+                    return "Not Found"
                 if current_node.data == data:
                     return "Found"
                 elif current_node.data > data:
-                    if current_node.left == None:
-                        return "Not Found"
-                    else:
-                        current_node = current_node.left
+                    current_node = current_node.left
                 elif current_node.data < data:
-                    if current_node.right == None:
-                        return "Not Found"
-                    else:
-                        current_node = current_node.right
+                    current_node = current_node.right
 
 '''
 my_bst = BST()
