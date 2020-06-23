@@ -10,8 +10,6 @@
 
 
 import sys
-
-
 class MaxHeap:
 
 #The constructor initializes the heap with a maxsize entered by the user, size set to 0, all the elements of heap set to 0
@@ -111,28 +109,39 @@ if __name__ == "__main__":
     my_heap.insert(22)
     my_heap.insert(9)
     my_heap.print_heap()
-'''
- PARENT : 84 LEFT CHILD : 22 RIGHT CHILD : 19
- PARENT : 22 LEFT CHILD : 17 RIGHT CHILD : 10
- PARENT : 19 LEFT CHILD : 5 RIGHT CHILD : 6
- PARENT : 17 LEFT CHILD : 3 RIGHT CHILD : 9
-'''
+    '''
+     PARENT : 84 LEFT CHILD : 22 RIGHT CHILD : 19
+     PARENT : 22 LEFT CHILD : 17 RIGHT CHILD : 10
+     PARENT : 19 LEFT CHILD : 5 RIGHT CHILD : 6
+     PARENT : 17 LEFT CHILD : 3 RIGHT CHILD : 9
+    '''
 
     print("The Max val is " + str(my_heap.extract_max()))
     #The Max val is 84
 
     my_heap.print_heap()
-'''
-PARENT : 22 LEFT CHILD : 17 RIGHT CHILD : 19
-PARENT : 17 LEFT CHILD : 9 RIGHT CHILD : 10
-PARENT : 19 LEFT CHILD : 5 RIGHT CHILD : 6
-PARENT : 9 LEFT CHILD : 3 RIGHT CHILD : 9
-'''
+    '''
+    PARENT : 22 LEFT CHILD : 17 RIGHT CHILD : 19
+    PARENT : 17 LEFT CHILD : 9 RIGHT CHILD : 10
+    PARENT : 19 LEFT CHILD : 5 RIGHT CHILD : 6
+    PARENT : 9 LEFT CHILD : 3 RIGHT CHILD : 9
+    '''
+
     my_heap.insert(100)
     my_heap.print_heap()
-'''
-PARENT : 100 LEFT CHILD : 22 RIGHT CHILD : 19
-PARENT : 22 LEFT CHILD : 17 RIGHT CHILD : 10
-PARENT : 19 LEFT CHILD : 5 RIGHT CHILD : 6
-PARENT : 17 LEFT CHILD : 3 RIGHT CHILD : 9
-'''
+    '''
+    PARENT : 100 LEFT CHILD : 22 RIGHT CHILD : 19
+    PARENT : 22 LEFT CHILD : 17 RIGHT CHILD : 10
+    PARENT : 19 LEFT CHILD : 5 RIGHT CHILD : 6
+    PARENT : 17 LEFT CHILD : 3 RIGHT CHILD : 9
+    '''
+
+    print(my_heap.Heap[0])
+    #9223372036854775807
+
+
+
+
+
+
+
