@@ -9,11 +9,11 @@ def iterative_factorial(number):
         f = f * i
     return f
 
-#print(iterative_factorial(0))
+print(iterative_factorial(0))
 #1
-#print(iterative_factorial(5))
+print(iterative_factorial(5))
 #120
-#print(iterative_factorial(50))
+print(iterative_factorial(50))
 #30414093201713378043612608166064768844377641568960512000000000000
 
 def recursive_factorial(number):

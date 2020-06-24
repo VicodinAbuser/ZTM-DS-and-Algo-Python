@@ -24,3 +24,16 @@ print(iterative_fibonacci(10)) #55
 print(iterative_fibonacci(12)) #144
 
 
+def recursive_fibonacci(index):
+    if index == 0: #Base case 1
+        return 0
+    if index == 1: #Base case 2
+        return 1
+    return  recursive_fibonacci(index-1) + recursive_fibonacci(index-2) #Every term in fib sequence = sum of previous two terms
+
+print(recursive_fibonacci(0))   #0
+print(recursive_fibonacci(1))   #1
+print(recursive_fibonacci(5))   #5
+print(recursive_fibonacci(7))   #13
+print(recursive_fibonacci(10))  #55
+print(recursive_fibonacci(12))  #144
