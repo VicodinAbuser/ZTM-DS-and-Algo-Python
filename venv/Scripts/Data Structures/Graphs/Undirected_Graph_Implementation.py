@@ -50,3 +50,15 @@ my_graph.insert_edge(1,2)
 my_graph.insert_edge(1,3)
 my_graph.insert_edge(2,3)
 my_graph.show_connections()
+
+"""
+1 -->> 2 3
+2 -->> 1 3
+3 -->> 1 2
+"""
+
+print(my_graph.adjacency_list)
+#{1: [2, 3], 2: [1, 3], 3: [1, 2]}
+
+print(my_graph.number_of_nodes)
+#3
