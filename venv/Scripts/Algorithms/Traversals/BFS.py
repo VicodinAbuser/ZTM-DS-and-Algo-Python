@@ -156,6 +156,18 @@ class BST():
                 queue.append(current_node.right)
         return BFS_result
 
+#Finally, we will implement the Recursive version of the BFS.
+    def Recursive_BFS(self, queue, BFS_list):
+        if len(queue) == 0:
+            return BFS_list
+        current_node = queue.pop(0)
+        BFS_list.append(current_node.data)
+        if current_node.left:
+            queue.append(current_node.left)
+        if current_node.right:
+            queue.append(current_node.right)
+        return self.Recursive_BFS(queue, BFS_list)
+
 
 my_bst = BST()
 my_bst.insert(5)
@@ -176,5 +188,8 @@ my_bst.insert(10)
 #The BFS Traversal for this tree should be : [5,3,7,1,13,0,10,65]
 
 print(my_bst.BFS())
+#[5, 3, 7, 1, 13, 0, 10, 65]
+
+print(my_bst.Recursive_BFS([my_bst.root],[])) #We need to pass the root node as an array and an empty array for the resuolt
 #[5, 3, 7, 1, 13, 0, 10, 65]
 
