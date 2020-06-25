@@ -37,8 +37,8 @@ def merge(left, right):
 
 
 array = [5,9,3,10,45,2,0]
-#print(merge_sort(array))
-#print(f'Number of comparisons = {count}')
+print(merge_sort(array))
+print(f'Number of comparisons = {count}')
 '''
 Left : [5, 9, 3]
 Right : [10, 45, 2, 0]
@@ -63,8 +63,8 @@ Number of comparisons = 12
 '''
 
 sorted_array = [5,6,7,8,9]
-#print(merge_sort(sorted_array))
-#print(f'Number of comparisons = {count}')
+print(merge_sort(sorted_array))
+print(f'Number of comparisons = {count}')
 '''
 Left : [5, 6]
 Right : [7, 8, 9]
