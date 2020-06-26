@@ -5,7 +5,12 @@ Contains all the code samples, implementations, and exercises from the Zero to M
 - venv/Scripts
   - Algorithms
     - Dynamic Programming
+      - Fibonacci.py
+      - Memoization.py
     - Recursion
+      - Factorial.py
+      - Fibonacci.py
+      - Reverse_String.py
     - Sorting
     - Traversals
   - Big-O
