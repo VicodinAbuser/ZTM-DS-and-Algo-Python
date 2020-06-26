@@ -4,6 +4,10 @@ Contains all the code samples, implementations, and exercises from the Zero to M
 ### Guide
 - venv/Scripts
   - Algorithms
+    - Dynamic Programming
+    - Recursion
+    - Sorting
+    - Traversals
   - Big-O
   - Data Structures
   - How To Solve Coding Problems
