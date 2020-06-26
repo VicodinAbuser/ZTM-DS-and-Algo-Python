@@ -1,7 +1,7 @@
 #Memoization is an optimization technique used to speed up programs by storing the results of expensive function calls
 #and returning the cached result when the same inputs occur again.
 #In Python there's a module named functools with a method lru_cache() which allows us to use this optimization technique
-#First, we'll implement memeoization on our own with an example function, then with the help of lru_cache
+#First, we'll implement memoization on our own with an example function, then with the help of lru_cache
 
 import time, random
 
