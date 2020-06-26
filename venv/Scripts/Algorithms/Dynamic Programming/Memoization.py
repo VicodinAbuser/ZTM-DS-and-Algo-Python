@@ -7,10 +7,10 @@ import time, random
 
 times =[]
 
-def squaring_without_memoization(number): #Function to square every element of an array of numbers
+def squaring_without_memoization(number): #Function to calculate the suare of a number
     return number**2
 
-array = [random.randint(1,10) for _ in range(1000000)] #Generates an array of size 100000000 with random integers between 1-10(both included)
+array = [random.randint(1,10) for _ in range(10000000)] #Generates an array of size 1000000 with random integers between 1-10(both included)
 t1 = time.time()
 for i in range(len(array)):
     print(squaring_without_memoization(array[i]))
@@ -47,11 +47,13 @@ t2 = time.time()
 times.append(t2-t1)
 
 print(times)
-#[7.063438177108765, 6.81576681137085, 5.929140090942383]
-#[7.06306266784668, 6.145563125610352, 5.758295774459839]
+#[203.95188665390015, 148.48580384254456, 148.26833629608154]   ---  When array size was 10000000
+#[7.06306266784668, 6.145563125610352, 5.758295774459839]   ---   When array size was 1000000
 
 print(cache)
 #{8: 64, 7: 49, 6: 36, 1: 1, 4: 16, 9: 81, 2: 4, 5: 25, 3: 9, 10: 100}
 
 print(squaring.cache_info())
-#CacheInfo(hits=999990, misses=10, maxsize=10000, currsize=10)
+#CacheInfo(hits=999990, misses=10, maxsize=10000, currsize=10)   ---   When array size was 1000000
+#CacheInfo(hits=9999990, misses=10, maxsize=10000, currsize=10)   ---  When array size was 10000000
+
