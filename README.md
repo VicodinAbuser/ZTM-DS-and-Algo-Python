@@ -1,7 +1,7 @@
 # ZTM-DS-and-Algo-Python
 Contains all the code samples, implementations, and exercises from the Zero to Mastery : Master the Coding Interview - Data Structures + Algorithms course by Andrei Neagoie, in Python.
 
-### Guide
+### Content
 - venv/Scripts
   - Algorithms
     - Dynamic Programming
