@@ -190,6 +190,6 @@ my_bst.insert(10)
 print(my_bst.BFS())
 #[5, 3, 7, 1, 13, 0, 10, 65]
 
-print(my_bst.Recursive_BFS([my_bst.root],[])) #We need to pass the root node as an array and an empty array for the resuolt
+print(my_bst.Recursive_BFS([my_bst.root],[])) #We need to pass the root node as an array and an empty array for the result
 #[5, 3, 7, 1, 13, 0, 10, 65]
 
