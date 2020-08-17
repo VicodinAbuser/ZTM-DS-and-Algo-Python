@@ -18,7 +18,7 @@ def merge(array1, array2):
             new_array.append(array2[second_array_index])
             second_array_index += 1
 
-        if first_array_index==len(array1)-1: #When the loop finishes, we need to know which array's end was reached, so that the remaining elements of the other array can be appended to the new array
+        if first_array_index==len(array1): #When the loop finishes, we need to know which array's end was reached, so that the remaining elements of the other array can be appended to the new array
             flag = 1 #This flag will tell us if we reached the end of the first array or the second array
 
     if flag == 1: #If the end of the first array was reached, the remaining elements of the second array are added to the new array
