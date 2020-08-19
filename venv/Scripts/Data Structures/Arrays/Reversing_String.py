@@ -22,14 +22,15 @@ print(simple_reverse(string))
 #This way we can avoid having to create a new array and save on space complexity while keeping time complexity at O(n)
 
 def swap(string, a, b): #Function which swaps two characters of a string
+    string = list(string)
     temp = string[a]
     string[a] = string[b]
     string[b] = temp
-    return string
+    return ''.join(string)
 
 def smarter_reverse(string):
     for i in range(len(string)//2):
-        string = swap(string, i, len(string)-i)
+        string = swap(string, i, len(string)-i-1)
     return string
 
 print(simple_reverse(string))
