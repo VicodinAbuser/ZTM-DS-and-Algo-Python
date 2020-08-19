@@ -21,8 +21,9 @@ print(simple_reverse(string))
 #We have start at both the ends and continue swapping pairs till the middle of the string
 #This way we can avoid having to create a new array and save on space complexity while keeping time complexity at O(n)
 
-def swap(string, a, b): #Function which swaps two characters of a string
-    string = list(string)
+def swap(string, a, b):
+    string = list(string)#Function which swaps two characters of a string
+    print(string, a, b)
     temp = string[a]
     string[a] = string[b]
     string[b] = temp
@@ -30,10 +31,11 @@ def swap(string, a, b): #Function which swaps two characters of a string
 
 def smarter_reverse(string):
     for i in range(len(string)//2):
+        print(i)
         string = swap(string, i, len(string)-i-1)
     return string
 
-print(simple_reverse(string))
+print(smarter_reverse(string))
 
 
 #Apart from these, some built-in functions that can be used to reverse a string are as follows:
