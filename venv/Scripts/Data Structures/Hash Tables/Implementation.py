@@ -28,10 +28,9 @@ class hash_table():
         hash = self._hash(key) #Hash value of the key is calculated using the _hash function
         if self.data[hash] == None: #If the 'hash' position of the data array is empty, we insert the key, value pair as a list
             self.data[hash] = [[key,value]]
-            print(self.data)
         else: #If the 'hash' position is not empty, implying a collision, we simply append the list of key,value pair to the lists already present
             self.data[hash].append([key, value])
-            print(self.data)
+        print(self.data)
 
     def keys(self): #Function to return all the keys
         keys_array = [] #Array to hold the keys
