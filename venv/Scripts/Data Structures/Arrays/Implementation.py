@@ -4,10 +4,10 @@
 class my_array():
     def __init__(self):
         self.length = 0 #We initialize the array's length to be zero
-        self.data = {} #We initialize the data of the array using an empty dictionary. The ekys will correspond to the index and the values to the data
+        self.data = {} #We initialize the data of the array using an empty dictionary. The keys will correspond to the index and the values to the data
 
     #The attributes of the array class are stored in a dictionary by default.
-    #When the __dict__ method is called on an instance of the class it returns the attributes of the class alongwith their values in a dictionary format
+    #When the __dict__ method is called on an instance of the class it returns the attributes of the class along with their values in a dictionary format
     #Now, when the instance of the class is printed, it returns a class object with its location in memory.
     #But we know when we print the array we get the elements of the array as output
     #When we print the instance of the class, the built-in __str__ method is called. So we can modify the __str__ method inside the class
