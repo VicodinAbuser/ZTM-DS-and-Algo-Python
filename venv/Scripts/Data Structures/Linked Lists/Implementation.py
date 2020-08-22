@@ -94,14 +94,12 @@ class LinkedList():
             self.tail.next = new_node
             self.tail = new_node
             self.length += 1
-            return
-        if position == 0:
+        elif position == 0:
             new_node = Node(data)
             new_node.next = self.head
             self.head = new_node
             self.length += 1
-            return
-        if position < self.length:
+        else:
             new_node = Node(data)
             current_node = self.head
             for i in range(position-1):
@@ -109,7 +107,6 @@ class LinkedList():
             new_node.next = current_node.next
             current_node.next = new_node
             self.length += 1
-            return
 
 
 #Next comes the delete_by_value method where the user can enter a value and if the value is found in the list, it will be deleted.
