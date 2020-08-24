@@ -135,19 +135,18 @@ class LinkedList():
                 self.tail = self.head
             self.length -= 1
             return
-        try:
-            while current_node!= None and current_node.next.data != data:
-                #if current_node.data == data:
-                #    previous_node.next = current_node.next
-                #    return
-                current_node = current_node.next
-            if current_node!=None:
-                current_node.next = current_node.next.next
-                if current_node.next == None:
-                    self.tail = current_node
-                self.length -= 1
-                return
-        except AttributeError:
+        while current_node.next!= None and current_node.next.data != data:
+            #if current_node.data == data:
+            #    previous_node.next = current_node.next
+            #    return
+            current_node = current_node.next
+        if current_node.next!=None:
+            current_node.next = current_node.next.next
+            if current_node.next == None:
+                self.tail = current_node
+            self.length -= 1
+            return
+        else:
             print("Given value not found.")
 
 
