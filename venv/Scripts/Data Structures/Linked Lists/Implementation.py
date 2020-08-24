@@ -135,12 +135,12 @@ class LinkedList():
                 self.tail = self.head
             self.length -= 1
             return
-        while current_node!= None and current_node.next.data != data:
+        while current_node.next!= None and current_node.next.data != data:
             #if current_node.data == data:
             #    previous_node.next = current_node.next
             #    return
             current_node = current_node.next
-        if current_node!=None:
+        if current_node.next!=None:
             current_node.next = current_node.next.next
             if current_node.next == None:
                 self.tail = current_node
@@ -148,7 +148,6 @@ class LinkedList():
             return
         else:
             print("Given value not found.")
-            return
 
 
 #Another functionality of linked lists can be deleting a node based on its position.
