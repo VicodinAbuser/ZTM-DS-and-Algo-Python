@@ -30,6 +30,8 @@ class Stack():
 #It will return the element at the top of the stack without removing it from the stack.
 #Since for this we only need to see what the top pointer points at, the time complexity will be O(1)
     def peek(self):
+        if self.top is None:
+            return None
         return self.top.data
 
 
@@ -41,26 +43,21 @@ class Stack():
         if self.top == None: #If the stack is empty, we make the top and bottom pointer both point to the new node
             self.top = new_node
             self.bottom = new_node
-            self.length += 1
-            return
         else: #Otherwise, we make the next of the new node, which was pointing to None, point to the present top and then update the top pointer
             new_node.next = self.top
             self.top = new_node
-            self.length += 1
-            return
+        self.length += 1
 
 #Next comes the pop operation wehere we remove the top element from the stack
 #Its time complexity is O(1) as well
     def pop(self):
         if self.top == None: #If the stack is empty, we print an appropriate message
             print("Stack empty")
-            return
         else: #Else we make the top pointer point to the next of the top pointer and decrease the length by 1, effectively deleting the top element.
             self.top = self.top.next
             self.length -= 1
             if(self.length == 0): #We make the bottom pointer None if there was only 1 element in the stack and that gets popped
                 self.bottom = None
-            return
 
 #Finally we'll implement a print method which prints the elements of the stack from top to bottom
 #This will be an O(n) operation as we'll obviously have to traverse the entire linked list to print all elelments
@@ -72,7 +69,6 @@ class Stack():
             while(current_pointer!=None):
                 print(current_pointer.data)
                 current_pointer = current_pointer.next
-        return
 
 
 my_stack = Stack()
