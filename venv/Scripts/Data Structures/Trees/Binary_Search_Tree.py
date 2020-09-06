@@ -110,7 +110,7 @@ class BST():
                             parent_node.left = current_node.right
                             return
                         else:
-                            parent_node.right = current_node.left
+                            parent_node.right = current_node.right
                             return
 
                 #Node has neither left nor right child
