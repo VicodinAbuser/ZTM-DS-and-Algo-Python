@@ -26,7 +26,7 @@ class hash_table():
 
     def set(self, key, value): #Function to insert a new key, value pair
         hash = self._hash(key) #Hash value of the key is calculated using the _hash function
-        if self.data[hash] == None: #If the 'hash' position of the data array is empty, we insert the key, value pair as a list
+        if not self.data[hash]: #If the 'hash' position of the data array is empty, we insert the key, value pair as a list
             self.data[hash] = [[key,value]]
         else: #If the 'hash' position is not empty, implying a collision, we simply append the list of key,value pair to the lists already present
             self.data[hash].append([key, value])
@@ -35,15 +35,18 @@ class hash_table():
     def keys(self): #Function to return all the keys
         keys_array = [] #Array to hold the keys
         for i in range(self.size): #We loop over the entire table
-            if self.data[i]!= None: #If we find a non-empty bucket, we go in and loop over all the key,value pairs that might be in it
-                for j in range(len(self.data[i])): #Looping over all the lists(key,value pairs) in the current bucket
-                    keys_array.append(self.data[i][j][0]) #Adding the key of each list to the keys_array
+            if self.data[i]: #If we find a non-empty bucket, we go in and loop over all the key,value pairs that might be in it
+                if len(self.data[i]) > 1:
+                    for j in range(len(self.data[i])): #Looping over all the lists(key,value pairs) in the current bucket
+                        keys_array.append(self.data[i][j][0]) #Adding the key of each list to the keys_array
+                else:
+                    keys_array.append(self.data[i][0][0]
         return keys_array
 
     def values(self): #Function to return all the values, with exactly the same logic as the keys function
         values_array = []
         for i in range(self.size):
-            if self.data[i] != None:
+            if self.data[i]:
                 for j in range(len(self.data[i])):
                     values_array.append(self.data[i][j][1])  #Only difference from the keys function is instead of appending the first element, we are appending the last element of each list
         return values_array
