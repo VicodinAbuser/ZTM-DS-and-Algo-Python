@@ -40,7 +40,7 @@ class hash_table():
                     for j in range(len(self.data[i])): #Looping over all the lists(key,value pairs) in the current bucket
                         keys_array.append(self.data[i][j][0]) #Adding the key of each list to the keys_array
                 else:
-                    keys_array.append(self.data[i][0][0]
+                    keys_array.append(self.data[i][0][0])
         return keys_array
 
     def values(self): #Function to return all the values, with exactly the same logic as the keys function
