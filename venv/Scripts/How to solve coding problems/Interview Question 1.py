@@ -55,7 +55,7 @@ def smarter_matching2(array1, array2):
     try:
         dictionary = dict()
         for i in range(len(array1)):
-            if not dictionary[array1[i]]:
+            if array1[i] not in dictionary:
                 dictionary[array1[i]] = True
 
         for i in range(len(array2)):
