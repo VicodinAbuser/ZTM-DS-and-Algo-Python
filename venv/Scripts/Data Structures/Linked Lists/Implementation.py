@@ -57,7 +57,7 @@ class LinkedList():
     def prepend(self, data):
         new_node = Node(data)
         if self.head == None:
-            self.head = self.new_node
+            self.head = new_node
             self.tail = self.head
             self.length += 1
         else:
