@@ -56,9 +56,14 @@ class LinkedList():
 #And ofcourse, we'll increase the length by 1
     def prepend(self, data):
         new_node = Node(data)
-        new_node.next = self.head
-        self.head = new_node
-        self.length += 1
+        if self.head == None:
+            self.head = new_node
+            self.tail = self.head
+            self.length += 1
+        else:
+            new_node.next = self.head
+            self.head = new_node
+            self.length += 1
 
 
 #Now we will implement the print function to print the values in the nodes of the linked list
