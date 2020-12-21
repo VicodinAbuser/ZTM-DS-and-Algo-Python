@@ -97,18 +97,18 @@ class DoublyLinkedList():
                 self.head.previous = None #We set the previous pointer of the new head to be None
             self.length -= 1
             return
-
-        while current_node!= None and current_node.next.data != data:
-            current_node = current_node.next
-        if current_node!=None:
-            current_node.next = current_node.next.next
-            if current_node.next != None: #If the node deleted is not the last node(i.e., the node next to the next to the current node is !- None),
-                current_node.next.previous = current_node #Then we set the previous of the node next to the deleted node equal to the current node, so a two-way link is established
-            else:
-                self.tail = current_node #If the deleted node is the last node then we update the tail to be the current node
-            self.length -= 1
-            return
-        else:
+        try:  # Try block required as if the value is not found then current_node.next will be None and there is no data parameter to compare.
+            while current_node!= None and current_node.next.data != data:
+                current_node = current_node.next
+            if current_node!=None:
+                current_node.next = current_node.next.next
+                if current_node.next != None: #If the node deleted is not the last node(i.e., the node next to the next to the current node is !- None),
+                    current_node.next.previous = current_node #Then we set the previous of the node next to the deleted node equal to the current node, so a two-way link is established
+                else:
+                    self.tail = current_node #If the deleted node is the last node then we update the tail to be the current node
+                self.length -= 1
+                return
+        except AttributeError:
             print("Given value not found.")
             return
 
@@ -189,6 +189,11 @@ my_linked_list.print_list()
 my_linked_list.delete_by_position(8)
 my_linked_list.print_list()
 #5 7 9
+
+my_linked_list.delete_by_value(3)
+my_linked_list.print_list()
+#Given value not found.
+
 print(my_linked_list.length)
 #3
 
