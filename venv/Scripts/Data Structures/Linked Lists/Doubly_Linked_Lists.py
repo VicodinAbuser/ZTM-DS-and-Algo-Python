@@ -182,10 +182,6 @@ my_linked_list.delete_by_position(3)
 my_linked_list.print_list()
 #4 5 7 9 0
 
-my_linked_list.delete_by_position(3)
-my_linked_list.print_list()
-#Given value not found.
-
 my_linked_list.delete_by_position(0)
 my_linked_list.print_list()
 #5 7 9 0
@@ -193,6 +189,11 @@ my_linked_list.print_list()
 my_linked_list.delete_by_position(8)
 my_linked_list.print_list()
 #5 7 9
+
+my_linked_list.delete_by_value(3)
+my_linked_list.print_list()
+#Given value not found.
+
 print(my_linked_list.length)
 #3
 
