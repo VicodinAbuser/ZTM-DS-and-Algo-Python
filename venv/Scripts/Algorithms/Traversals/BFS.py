@@ -144,20 +144,26 @@ class BST():
 #Now we implement the BFS method.
     def BFS(self):
         current_node = self.root #We start with the root node
-        BFS_result = [] #This will store the result of the BFS
-        queue = [] #Queue to keep track of the children of each node
-        queue.append(current_node)  #We add the root to the queue first
-        while len(queue) > 0:
-            current_node = queue.pop(0)  #We extract the first element of the queue and make it the current node
-            BFS_result.append(current_node.data)  #We push the data of the current node to the result list as we are currently visiting the current node
-            if current_node.left: #If left child of the current node exists, we append it to the queue
-                queue.append(current_node.left)
-            if current_node.right: #Similarly, if right child exists, we append it to the queue
-                queue.append(current_node.right)
-        return BFS_result
+        if current_node is None:    #In case we don't insert anything in tree and then run BFS function
+            return 'Tree is empty'
+        else:
+            BFS_result = [] #This will store the result of the BFS
+            queue = [] #Queue to keep track of the children of each node
+            queue.append(current_node)  #We add the root to the queue first
+            #queue = [current_node]  #above two statement can be combined as per the PEP guidelines
+            while len(queue) > 0:
+                current_node = queue.pop(0)  #We extract the first element of the queue and make it the current node
+                BFS_result.append(current_node.data)  #We push the data of the current node to the result list as we are currently visiting the current node
+                if current_node.left: #If left child of the current node exists, we append it to the queue
+                    queue.append(current_node.left)
+                if current_node.right: #Similarly, if right child exists, we append it to the queue
+                    queue.append(current_node.right)
+            return BFS_result
 
 #Finally, we will implement the Recursive version of the BFS.
     def Recursive_BFS(self, queue, BFS_list):
+        if self.root is None:   #In case we don't insert anything in tree and then run BFS function
+            return 'Tree is empty'
         if len(queue) == 0:
             return BFS_list
         current_node = queue.pop(0)
