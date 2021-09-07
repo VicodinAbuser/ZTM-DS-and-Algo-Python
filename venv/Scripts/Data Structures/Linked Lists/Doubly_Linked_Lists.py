@@ -68,6 +68,8 @@ class DoublyLinkedList():
             self.prepend(data) #Inserting at position 0 is equivalent to prepending. So instead of repeating code, we simple call the prepend method
             return
         if position >= self.length:
+            if position > self.length:
+                print('This position is not available. Inserting at the end of the list')
             self.append(data) #Similarly, inserting ata position >= the length of the list is equivalent to appending, so we call the append method
             return
         else:
