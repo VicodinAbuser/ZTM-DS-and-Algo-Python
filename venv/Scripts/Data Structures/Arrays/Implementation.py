@@ -1,7 +1,7 @@
 #Although arrays are pre-defined in Python in the form of lists, we can implement our own arrays.
 #Here, we will implement our own array with some common methods such as access, push, pop, insert, delete
 
-class my_array():
+class MyArray():
     def __init__(self):
         self.length = 0 #We initialize the array's length to be zero
         self.data = {} #We initialize the data of the array using an empty dictionary. The keys will correspond to the index and the values to the data
@@ -31,7 +31,7 @@ class my_array():
     def insert(self, index, item):
         self.length += 1
         for i in range(self.length-1, index, -1):
-            self.data[i] = self.data[i-1] #Shifts every element from the index to the end by one plsce towards right. Thus making space at the specified index
+            self.data[i] = self.data[i-1] #Shifts every element from the index to the end by one place towards right. Thus making space at the specified index
         self.data[index] = item #Adds the element at the given index. O(n) operation
 
 
@@ -43,7 +43,7 @@ class my_array():
 
 
 
-arr = my_array()
+arr = MyArray()
 arr.push(6)
 #{'length': 1, 'data': {0: 6}}
 
