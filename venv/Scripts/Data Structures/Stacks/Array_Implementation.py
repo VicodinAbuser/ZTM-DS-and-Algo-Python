@@ -3,7 +3,7 @@
 #Python comes built-in with lists which are basically arrays.
 #They contain functionalities like append and pop which correspond to the push and pop methods of stacks respectively
 #So implementing stacks using arrays is pretty simple in Python
-#The time complexities of different operations are same as that for the inked list implementation of stacks
+#The time complexities of different operations are same as that for the linked list implementation of stacks
 
 
 #We define a class Stack with the array which will store the elements and the methods we require for a stack
