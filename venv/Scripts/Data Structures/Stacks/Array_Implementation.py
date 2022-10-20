@@ -1,4 +1,4 @@
-#Stacks can be implemented with th ehelp of arrays as well.
+#Stacks can be implemented with the help of arrays as well.
 #We can insert and delete elements only at the end of the array(the top of the stack)
 #Python comes built-in with lists which are basically arrays.
 #They contain functionalities like append and pop which correspond to the push and pop methods of stacks respectively
