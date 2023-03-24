@@ -1,4 +1,10 @@
 # ZTM-DS-and-Algo-Python
+
+![GitHub](https://img.shields.io/github/license/hegdepavankumar/ZTM-DS-and-Algo-Python?style=flat)
+![GitHub top language](https://img.shields.io/github/languages/top/hegdepavankumar/ZTM-DS-and-Algo-Python?style=flat)
+![GitHub last commit](https://img.shields.io/github/last-commit/hegdepavankumar/ZTM-DS-and-Algo-Python?style=flat)
+![ViewCount](https://views.whatilearened.today/views/github/hegdepavankumar/ZTM-DS-and-Algo-Python.svg?cache=remove)
+
 Contains all the code samples, implementations, and exercises from the Zero to Mastery : Master the Coding Interview - Data Structures + Algorithms course by Andrei Neagoie, in Python.
 
 ### Content
