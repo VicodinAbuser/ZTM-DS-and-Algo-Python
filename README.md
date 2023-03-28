@@ -77,6 +77,14 @@ Contains all the code samples, implementations, and exercises from the Zero to M
       - [Heap.py](https://github.com/VicodinAbuser/ZTM-DS-and-Algo-Python/blob/master/venv/Scripts/Data%20Structures/Trees/Heap.py)
       - [Priority_Queues_Using_Heap.py](https://github.com/VicodinAbuser/ZTM-DS-and-Algo-Python/blob/master/venv/Scripts/Data%20Structures/Trees/Priority_Queues_Using_Heap.py)
       - [Trie.py](https://github.com/VicodinAbuser/ZTM-DS-and-Algo-Python/blob/master/venv/Scripts/Data%20Structures/Trees/Trie.py)
+
+      - String
+       - [Count_Occurrence.py](https://github.com/hegdepavankumar/ZTM-DS-and-Algo-Python/blob/master/venv/Scripts/Data%20Structures/String/Count_Occurrence.py)
+       - [Palindrome.py](https://github.com/hegdepavankumar/ZTM-DS-and-Algo-Python/blob/master/venv/Scripts/Data%20Structures/String/Palindrome.py)
+       - [Remove_Character.py](https://github.com/hegdepavankumar/ZTM-DS-and-Algo-Python/blob/master/venv/Scripts/Data%20Structures/String/Remove_Character.py)
+       - [Vowel_Consonant.py](https://github.com/hegdepavankumar/ZTM-DS-and-Algo-Python/blob/master/venv/Scripts/Data%20Structures/String/Vowel_Consonant.py)
+       - [lowercase_uppercase.py](https://github.com/hegdepavankumar/ZTM-DS-and-Algo-Python/blob/master/venv/Scripts/Data%20Structures/String/lowercase_uppercase.py)
+
   
   - How To Solve Coding Problems
     - [Google Interview Question.py](https://github.com/VicodinAbuser/ZTM-DS-and-Algo-Python/blob/master/venv/Scripts/How%20to%20solve%20coding%20problems/Google%20Interview%20Question.py)
