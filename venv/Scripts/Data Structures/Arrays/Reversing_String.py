@@ -19,7 +19,7 @@ print(simple_reverse(string))
 
 #A smarter way to do this , can be taking a pair of elements from either end of the string and swapping them
 #We have start at both the ends and continue swapping pairs till the middle of the string
-#This way we can avoid having to create a new array and save on space complexity while keeping time complexity at O(n)
+#Because we are creating a list in the swap function, space complexity is O(4*n) and time complexity is still at O(n)
 
 def swap(string, a, b): #Function which swaps two characters of a string
     string = list(string)
