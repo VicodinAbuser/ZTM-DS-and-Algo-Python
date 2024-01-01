@@ -25,7 +25,7 @@ def find_nemo(array):
     print(f"The search took {t1-t0} seconds.")
 
 
-# Test funchallenge with different input sizes
+# Test with different input sizes
 # find_nemo(nemo)
 # find_nemo(everyone)
 # find_nemo(large)
