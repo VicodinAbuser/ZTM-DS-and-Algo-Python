@@ -13,7 +13,7 @@ class MyArray():
     #When we print the instance of the class, the built-in __str__ method is called. So we can modify the __str__ method inside the class
     #To suit our needs.
     def __str__(self):
-       return str(self.__dict__) #This will print the attributes of the array class(length and dsata) in string format when print(array_instance) is executed
+       return str(self.__dict__) #This will print the attributes of the array class(length and data) in string format when print(array_instance) is executed
 
     def get(self, index):
         return self.data[index] #This method takes in the index of the element as a parameter and returns the corresponding element in O(1) time.
